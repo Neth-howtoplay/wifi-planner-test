@@ -1,4 +1,5 @@
-📦 Gigatex WiFi Optimizer – Golden Version Feature Log
+📦 Gigatex WiFi Optimizer V.3 – Change logs.
+
 🖼 Floor Plan & Interface
 ✅ Upload custom floor plan image (PNG, JPG, JPEG supported)
 
@@ -7,7 +8,7 @@
 ✅ Switch between floors instantly via selector
 
 ✅ Zoom-free, drag-and-drop layout
-
+---------------------
 📡 Access Point Placement
 ✅ Place Gigatex APs (select model: A623 or T626Pro)
 
@@ -44,11 +45,12 @@ Updated live after each AP placement
 
 🛠 Multi-Floor System
 ✅ Floor-specific:
-
+---------------------
 APs
 
+---------------------
 Floor images
-
+---------------------
 Coverage zones
 
 ✅ Floor switching does not affect other floors' data
