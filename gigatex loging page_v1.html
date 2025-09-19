@@ -1,0 +1,236 @@
+!DOCTYPE html
+html lang=en
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1 
+  titleTRUE GIGATEX – Logintitle
+  style
+    root{
+      --bg1 #0b1220;
+      --bg2 #0f1629;
+      --glass rgba(255,255,255,0.12);
+      --glass-border rgba(255,255,255,0.25);
+      --ink #dbe6ff;
+      --accent #4ea5ff;
+      --accent-2#61d7ff;
+      --btn#3866a3;
+      --btn-hover#2f568a;
+      --ok#399d4a;
+      --err#e15b64;
+    }
+
+    {box-sizingborder-box}
+    html,body{height100%}
+    body{
+      margin0;
+      font-family ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      colorvar(--ink);
+      background radial-gradient(1200px 900px at 20% 10%, #1a2542 0%, transparent 60%),
+                  radial-gradient(1400px 1000px at 80% 120%, #0b4579 0%, transparent 60%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflowhidden;
+    }
+
+    .frame{
+      height100%;
+      displaygrid;
+      place-itemscenter;
+      padding4vmin;
+    }
+    .card{
+      positionrelative;
+      widthmin(1050px, 92vw);
+      min-height460px;
+      border-radius28px;
+      background linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)) ;
+      backdrop-filter blur(18px) saturate(140%);
+      -webkit-backdrop-filter blur(18px) saturate(140%);
+      box-shadow 0 30px 60px rgba(0,0,0,.35), inset 0 0 0 1px var(--glass-border);
+      overflowhidden;
+      displaygrid;
+      grid-template-columns 1.1fr 1fr;
+    }
+    .glow{
+      pointer-eventsnone;
+      positionabsolute; inset-10% -20% -10% -20%;
+      background radial-gradient(60% 40% at 20% 10%, rgba(255,255,255,.18), transparent 60%),
+                  radial-gradient(60% 45% at 80% 20%, rgba(97,215,255,.18), transparent 60%),
+                  radial-gradient(60% 45% at 50% 100%, rgba(78,165,255,.15), transparent 60%);
+      filter blur(28px) saturate(120%);
+      animation float 12s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%{transformtranslate3d(0,0,0)}
+      50%{transformtranslate3d(0,-12px,0)}
+      100%{transformtranslate3d(0,0,0)}
+    }
+
+    .left{displaygrid; place-itemscenter; padding40px 28px 40px 40px;}
+    .left img{max-width100%; heightauto; filter drop-shadow(0 6px 24px rgba(0,0,0,.35));}
+
+    .right{padding42px 48px 48px 32px; displayflex; flex-directioncolumn; gap24px;}
+
+    h1{margin0; font-size28px; letter-spacing.2px}
+
+    .field{positionrelative;}
+    .label{font-size13px; opacity.85; margin-bottom8px; displayblock}
+    .input{
+      width100%; padding14px 44px 14px 44px; border-radius14px;
+      colorvar(--ink); font-size15px; letter-spacing.2px;
+      background rgba(255,255,255,.10);
+      border1px solid rgba(255,255,255,.28);
+      outlinenone;
+      backdrop-filter blur(4px);
+      transition box-shadow .2s, border-color .2s, background .2s;
+    }
+    .inputfocus{border-color var(--accent); box-shadow 0 0 0 6px rgba(78,165,255,.18); background rgba(255,255,255,.13);}
+    .icon{positionabsolute; left12px; top50%; transformtranslateY(-50%); width20px; height20px; opacity.9}
+
+    .captcha-row{displayflex; align-itemscenter; gap14px}
+    canvas#captcha{ border-radius12px; background#0b0f19; padding6px 10px; border1px solid rgba(255,255,255,.25)}
+    .refresh{displayinline-grid; place-itemscenter; width36px; height36px; border-radius12px; border1px solid rgba(255,255,255,.25); backgroundrgba(255,255,255,.08); cursorpointer; user-selectnone; transitiontransform .15s ease;}
+    .refreshactive{ transform scale(.96) }
+
+    .actions{displayflex; gap16px; align-itemscenter; margin-top4px}
+    .btn{ padding12px 22px; border-radius16px; border1px solid rgba(255,255,255,.25); background linear-gradient(180deg, var(--btn), #274b7e); colorwhite; font-weight600; letter-spacing.2px; cursorpointer; box-shadow 0 10px 24px rgba(46,108,193,.35);}
+    .btnhover{ background linear-gradient(180deg, var(--btn-hover), #21416d)}
+
+    .msg{min-height22px; font-size14px}
+    .msg.ok{colorvar(--ok)}
+    .msg.err{colorvar(--err)}
+
+    @media (max-width 920px){.card{ grid-template-columns 1fr; } .left{ displaynone; }}
+  style
+head
+body
+  div class=frame
+    div class=card role=region aria-label=Login Panel
+      div class=glow aria-hidden=truediv
+
+      aside class=left
+        img src=True_Gigatex1.png alt=TRUE GIGATEX FIBER 
+      aside
+
+      main class=right
+        h1Loginh1
+
+        div class=field
+          label class=label for=userUsernamelabel
+          svg class=icon viewBox=0 0 24 24 fill=none stroke=currentColor stroke-width=1.6circle cx=12 cy=8 r=4path d=M4 20c2.2-4 13.8-4 16 0svg
+          input id=user class=input type=text autocomplete=username placeholder=Enter username 
+        div
+
+        div class=field
+          label class=label for=passPasswordlabel
+          svg class=icon viewBox=0 0 24 24 fill=none stroke=currentColor stroke-width=1.6rect x=3 y=11 width=18 height=9 rx=2path d=M7 11V8a5 5 0 0 1 10 0v3svg
+          input id=pass class=input type=password autocomplete=current-password placeholder=Enter password 
+        div
+
+        div class=field
+          label class=label for=captcha-inputCAPTCHAlabel
+          div class=captcha-row
+            canvas id=captcha width=220 height=48 aria-label=captcha imagecanvas
+            button class=refresh id=refresh title=Refresh CAPTCHA aria-label=refresh captcha
+              svg width=20 height=20 viewBox=0 0 24 24 fill=none stroke=currentColor stroke-width=1.8path d=M3 12a9 9 0 1 0 3-6.7polyline points=3 3 9 3 9 9svg
+            button
+          div
+          input id=captcha-input class=input style=margin-top10px type=text inputmode=latin placeholder=Type the characters 
+        div
+
+        div class=actions
+          button id=login class=btnLoginbutton
+          div id=msg class=msg role=status aria-live=politediv
+        div
+      main
+    div
+  div
+
+  script
+    const VALID_USER = admin;
+    const VALID_PASS = gigatex965;
+
+    const CAP_LEN = 7;
+    const alphabet = ABCDEFGHJKLMNPQRSTUVWXYZ23456789;
+    let currentCaptcha = ;
+
+    const canvas = document.getElementById('captcha');
+    const ctx = canvas.getContext('2d');
+
+    function rnd(min, max){ return Math.random()  (max-min) + min; }
+
+    function drawNoise(){
+      const g = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+      g.addColorStop(0, '#0e1322');
+      g.addColorStop(1, '#1a2750');
+      ctx.fillStyle = g; ctx.fillRect(0,0,canvas.width,canvas.height);
+      for(let i=0;i24;i++){
+        ctx.fillStyle = `hsla(${Math.floor(rnd(180,240))},70%,${Math.floor(rnd(60,80))}%,.75)`;
+        ctx.beginPath();
+        ctx.arc(rnd(0,canvas.width), rnd(0,canvas.height), rnd(0.8, 2.6), 0, Math.PI2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = .35; ctx.strokeStyle = '#9ad1ff';
+      for(let i=0;i3;i++){
+        ctx.beginPath();
+        ctx.moveTo(rnd(0,40), rnd(10,38));
+        for(let x=0;x6;x++) ctx.lineTo(rnd(40,canvas.width), rnd(10,38));
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function createCaptcha(){
+      currentCaptcha = Array.from({length CAP_LEN}, ()= alphabet[Math.floor(Math.random()alphabet.length)]).join('');
+      drawNoise();
+      ctx.font = 'bold 28px ui-sans-serif, system-ui';
+      ctx.textBaseline = 'middle';
+      const startX = 18;
+      for(let i=0;icurrentCaptcha.length;i++){
+        const ch = currentCaptcha[i];
+        const x = startX + i28 + rnd(-2,2);
+        const y = canvas.height2 + rnd(-2,2);
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.rotate(rnd(-0.35, 0.35));
+        const cg = ctx.createLinearGradient(-10,-10, 18, 24);
+        cg.addColorStop(0, '#eaffff');
+        cg.addColorStop(1, '#66bfff');
+        ctx.fillStyle = cg;
+        ctx.fillText(ch, 0,0);
+        ctx.restore();
+      }
+      sessionStorage.setItem('captcha_code', currentCaptcha);
+      document.getElementById('captcha-input').value = '';
+    }
+
+    function resetCaptchaOnExit(){ sessionStorage.removeItem('captcha_code'); }
+
+    window.addEventListener('beforeunload', resetCaptchaOnExit);
+    window.addEventListener('pagehide', resetCaptchaOnExit);
+    document.addEventListener('visibilitychange', ()={ if(document.visibilityState === 'hidden') resetCaptchaOnExit(); });
+
+    document.getElementById('refresh').addEventListener('click', createCaptcha);
+
+    const $msg = document.getElementById('msg');
+    function setMsg(text, ok=false){ $msg.textContent = text  ''; $msg.className = 'msg ' + (ok  'ok'  'err'); }
+
+    document.getElementById('login').addEventListener('click', (e)={
+      e.preventDefault();
+      const u = document.getElementById('user').value.trim();
+      const p = document.getElementById('pass').value;
+      const c = document.getElementById('captcha-input').value.trim().toUpperCase();
+
+      if(!u  !p  !c){ setMsg('Please fill all fields.'); createCaptcha(); return; }
+      if(c !== currentCaptcha){ setMsg('CAPTCHA is incorrect. Try again.'); createCaptcha(); return; }
+      if(u !== VALID_USER){ setMsg('Username is incorrect.'); createCaptcha(); return; }
+      if(p !== VALID_PASS){ setMsg('Password is incorrect.'); createCaptcha(); return; }
+
+      setMsg('Success! Logging in…', true);
+      resetCaptchaOnExit();
+      setTimeout(()={ window.location.href = '#dashboard'; }, 650);
+    });
+
+    createCaptcha();
+  script
+body
+html
